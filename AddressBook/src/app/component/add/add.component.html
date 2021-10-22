@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="form-content">
+
+   <form class="form" [formGroup]="AddressBookFormGroup" (ngSubmit)="onSubmit()">
+
+      <!--Form Header-->
+      <div class="form-head">
+            <span class="head">PERSON ADDRESS FORM</span>
+
+            <!--Cancel Button-->
+            <a routerLink="/home">
+                <img src="../assets/images/cancel.jpeg" alt="" width="3%" id="cancel-icon" class="close" style="float: right">
+            </a>
+        </div>
+
+        <!--Name Content with error details-->
+        <div class="column-content">
+            <mat-label class="label text" for="name">Full Name</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="name" type="search" autocomplete="off">
+
+                <mat-error *ngIf="checkError('name', 'required')">Name is required</mat-error>
+                <mat-error *ngIf="checkError('name', 'pattern')">Name should start with upper case and should have minimum of 3 characters</mat-error>
+            </mat-form-field>
+        </div>
+        
+        <!--Address Content with error details-->
+        <div class="column-content-style">
+            <mat-label class="label text" for="address">Address</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <textarea matInput class="input" style="height:60px" ngDefaultControl formControlName="address" type="search" autocomplete="off"></textarea>
+
+                <mat-error *ngIf="checkError('address', 'required')">Address is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="row-content-address">
+        
+        <div>
+            <select class="city" size="1" formControlName="city">
+                <option value="" disabled selected>Select City</option>
+                <option>Chennai</option>
+                <option>Tirunelveli</option>
+                <option>Madurai</option>
+                <option>Erode</option>
+                <option>Hosur</option>
+                <option>Karur</option>
+                <br><mat-error *ngIf="checkError('city', 'required')">City is required</mat-error>
+            </select> 
+
+            <select class="state" size="1" formControlName="state">
+                <option value="" disabled selected>Select State</option>
+                <option>Odisha</option>
+                <option>Maharashtra</option>
+                <option>Kerala</option>
+                <option>Delhi</option>
+                <option>Punjab</option>
+                <option>Bihar</option>
+                <br><mat-error *ngIf="checkError('state', 'required')">State is required</mat-error>
+            </select>  
+                 
+        <!--Zip Content with error details-->
+        <div class="zip-container subAddress">
+            <mat-label class="label text" for="zip">Zip</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="zip" type="search" autocomplete="off">
+
+                <mat-error *ngIf="checkError('zip', 'required')">Zip is required</mat-error>
+                <mat-error *ngIf="checkError('zip', 'pattern')">Zip should be only numeric and length should be equal to 6</mat-error>
+            </mat-form-field>
+        </div> 
+        </div>   
+        
+        </div>   
+        
+       <!--Phone Number Content with error details-->
+       <div class="column-content-style">
+            <mat-label class="label text" for="phone">Phone Number</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="phoneNo" type="search" autocomplete="off">
+
+                <mat-error *ngIf="checkError('phoneNo', 'required')">Phone Number is required</mat-error>
+                <mat-error *ngIf="checkError('phoneNo', 'pattern')">Phone numbe length should be equal to 10</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!--Buttons: Add and Edit buttons based on the url page opened-->
+        <div class="add-reset">
+            <button mat-raised-button type="submit" class="addButton button" id="addButton">Add</button>
+            <button mat-raised-button type="reset" class="resetButton button">Reset</button>
+            <a routerLink="/home">
+                <button mat-raised-button color="accent" class="button cancelButton">Cancel</button>
+            </a>
+        </div>
+            
+   </form>
+
+</div>

@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="main-content">
+
+    <div class="header-content">
+
+        <!--Display Data-->
+        <div class="add-detail-text">
+            Person Details
+        </div>
+
+        <!--Add icon-->
+        <a class="add-button" routerLink="/addform">
+            <img src="../assets/icons/add-24px.svg" alt="">Add Person
+        </a>
+    </div>
+
+    <div class="table-main">
+        <table id ="display" class="table">
+            <tr>
+                <!--Table header-->
+                <th>Fullname</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Phone Number</th>
+                <th>Action</th>
+            </tr>
+
+            <!--Table Data-->
+            <tr *ngFor="let address of addressDetails">
+                <td>{{address.name}}</td>
+                <td>{{address.address}}</td>
+                <td>
+                    {{address.city}}
+                </td>
+                <td>{{address.state}}</td>
+                <td>{{address.zip}}</td>
+                <td>{{address.phoneNo}}</td>
+                
+                <td>
+                    <img id={{address.id}} (click)="remove(address.id)"
+                        src="../assets/icons/delete-black-18dp.svg"
+                        alt="delete">
+                    <img id={{address.id}} (click)="update(address)"
+                        src="../assets/icons/create-black-18dp.svg" alt="edit">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

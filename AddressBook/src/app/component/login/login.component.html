@@ -1,0 +1,27 @@
+<h1>User Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+    <!-- Email content -->
+
+    <div class="form-group" >
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" matInput  size="10" class="form-control"  placeholder="Enter email here"/>    
+    </div>
+
+    <!-- Password content -->
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" matInput class="form-control"  placeholder="Enter password here" />
+    </div>
+
+    <!-- Button-Details -->
+
+    <div class="form-group">
+        <button type="submit">Login</button> 
+        <a routerLink="/register" class="btn btn-link">
+            <button >Register</button>
+        </a> 
+    </div>
+   
+</form>

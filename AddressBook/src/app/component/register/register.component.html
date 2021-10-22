@@ -1,0 +1,54 @@
+<h1>User Registration</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <!-- Name-Content -->
+
+  <div class="form-group">
+    <mat-label for="userName">Name</mat-label><br>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <input type="input" ngDefaultControl matInput formControlName="userName" type="search" class="form-control" placeholder="Enter First Name here"/>
+        <mat-error *ngIf="checkError('userName', 'required')">Name is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- Email-Content -->
+
+  <div class="form-group">
+    <mat-label for="email">Email</mat-label><br>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <input type="text" formControlName="email" matInput class="form-control"  placeholder="Enter email here"/> 
+        <mat-error *ngIf="checkError('email', 'required')">Email is required</mat-error>
+    </mat-form-field>
+  </div>
+  
+  <!-- PhoneNumber-Content -->
+
+  <div class="form-group">
+    <mat-label for="phoneNumber">Phone</mat-label><br>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <input type="text" formControlName="phoneNumber" matInput class="form-control" placeholder="Enter Phone here"/>
+      <mat-error *ngIf="checkError('phoneNumber', 'required')">phoneNumber is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- Password-Content -->
+
+  <div class="form-group">
+    <label for="password">Password</label><br>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <input type="password" formControlName="password" matInput class="form-control" placeholder="Enter Password here"/>
+      <mat-error *ngIf="checkError('password', 'required')">Password is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- Button-Content -->
+
+  <div class="form-group">
+      <button type="submit">Register</button>
+          
+      <a routerLink="/login" class="btn btn-link">
+        <button>Login to continue</button>
+      </a>
+  </div>
+
+</form>
